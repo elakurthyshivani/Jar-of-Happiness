@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".StatisticsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="1dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Statistics"
+            style="@style/ComicNeue18Style"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/menu"
+            android:tooltipText="Goto menu"
+            android:onClick="gotoMenu" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/no_s_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:background="@drawable/rounded_corners_10dp"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.75"
+                android:layout_height="wrap_content"
+                android:text="Number of 'title' entries"
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/title_count"
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.25"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                style="@style/ComicNeue18Style"
+                android:textColor="@color/dark_magenta_8per_lighter" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.75"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Number of 'when' entries "
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/when_count"
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.25"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                style="@style/ComicNeue18Style"
+                android:textColor="@color/blue_violet" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.75"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Number of 'location' entries"
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/location_count"
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.25"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                style="@style/ComicNeue18Style"
+                android:textColor="@color/light_sea_green" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.75"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Number of memories"
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/memory_count"
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.25"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                style="@style/ComicNeue18Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.75"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Number of locked memories"
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/locked_memories_count"
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.25"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                style="@style/ComicNeue18Style"
+                android:textColor="@color/aqua_blue" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.75"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Number of deleted memories"
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/deleted_memories_count"
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.25"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                style="@style/ComicNeue18Style"
+                android:textColor="@color/light_sea_green" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginBottom="4dp"
+                android:text="Number of memories with mood"
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_columnSpan="2">
+
+                <ImageView
+                    android:id="@+id/laugh_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/lol_icon"
+                    app:layout_constraintBottom_toTopOf="@id/laugh_count"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/laugh_s"
+                    android:tag="us"
+                    android:tooltipText="Laugh" />
+
+                <ImageView
+                    android:id="@+id/lol_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/laugh_icon"
+                    app:layout_constraintRight_toLeftOf="@id/love_icon"
+                    app:layout_constraintBottom_toTopOf="@id/lol_count"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/lol_s"
+                    android:tag="us"
+                    android:tooltipText="LOL" />
+
+                <ImageView
+                    android:id="@+id/love_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/lol_icon"
+                    app:layout_constraintRight_toLeftOf="@id/tongue_icon"
+                    app:layout_constraintBottom_toTopOf="@id/love_count"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/love_s"
+                    android:tag="us"
+                    android:tooltipText="Love" />
+
+                <ImageView
+                    android:id="@+id/tongue_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/love_icon"
+                    app:layout_constraintRight_toLeftOf="@id/wink_icon"
+                    app:layout_constraintBottom_toTopOf="@id/tongue_count"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/tongue_s"
+                    android:tag="us"
+                    android:tooltipText="Tongue out" />
+
+                <ImageView
+                    android:id="@+id/wink_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tongue_icon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/wink_count"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/wink_s"
+                    android:tag="us"
+                    android:tooltipText="Wink" />
+
+                <TextView
+                    android:id="@+id/laugh_count"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/laugh_icon"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/lol_count"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    android:layout_marginBottom="4dp"
+                    android:text="6"
+                    android:textAlignment="center"
+                    android:textColor="@color/pink_shade"
+                    style="@style/ComicNeue18Style"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/lol_count"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/lol_icon"
+                    app:layout_constraintLeft_toRightOf="@id/laugh_count"
+                    app:layout_constraintRight_toLeftOf="@id/love_count"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    android:text="6"
+                    android:textAlignment="center"
+                    android:textColor="@color/gold"
+                    style="@style/ComicNeue18Style"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/love_count"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/laugh_icon"
+                    app:layout_constraintLeft_toRightOf="@id/lol_count"
+                    app:layout_constraintRight_toLeftOf="@id/tongue_count"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    android:text="6"
+                    android:textColor="@color/pink_shade"
+                    android:textAlignment="center"
+                    style="@style/ComicNeue18Style"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tongue_count"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/laugh_icon"
+                    app:layout_constraintLeft_toRightOf="@id/love_count"
+                    app:layout_constraintRight_toLeftOf="@id/wink_count"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    android:text="6"
+                    android:textColor="@color/gold"
+                    android:textAlignment="center"
+                    style="@style/ComicNeue18Style"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/wink_count"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/laugh_icon"
+                    app:layout_constraintLeft_toRightOf="@id/tongue_count"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    android:text="6"
+                    android:textColor="@color/pink_shade"
+                    android:textAlignment="center"
+                    style="@style/ComicNeue18Style"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/laugh_icon"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    android:text="6"
+                    android:textColor="@color/gold"
+                    style="@style/ComicNeue18Style"
+                    android:textStyle="bold" />
+                
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.75"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Number of tags"
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tag_count"
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.25"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                style="@style/ComicNeue18Style"
+                android:textColor="@color/deep_pink" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.75"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Number of links"
+                style="@style/ComicNeue16Style"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/link_count"
+                android:layout_width="0dp"
+                android:layout_columnWeight="0.25"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                style="@style/ComicNeue18Style"
+                android:textColor="@color/dodger_blue" />
+
+        </GridLayout>
+
+    </ScrollView>
+
+</LinearLayout>

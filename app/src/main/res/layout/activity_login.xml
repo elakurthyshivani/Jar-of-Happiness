@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey5"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/logo_image" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo_image"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        style="@style/WhiteBCTextStyle" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/rounded_corners_10dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:padding="8dp"
+        android:clickable="true"
+        android:onClick="signIn">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/google_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:textSize="16sp"
+            style="@style/ComicNeue18Style"
+            android:text="Sign-in with Google" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#4f5dc6</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/grey5</item>
+        <item name="android:statusBarColor">@color/grey5</item>
+        <item name="android:navigationBarColor">@color/grey5</item>
+    </style>
+
+    <style name="JOHTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="colorAccent">@color/peach_puff</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+    </style>
+
+    <style name="MenuTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/grey5</item>
+        <item name="colorPrimaryDark">@color/grey5</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:statusBarColor">@color/grey5</item>
+        <item name="android:navigationBarColor">@color/grey5</item>
+    </style>
+
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/blue_violet</item>
+    </style>
+
+    <style name="FilterTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/pale_green</item>
+    </style>
+
+    <style name="MemoryListTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/aqua_blue</item>
+    </style>
+
+
+    <style name="WhiteBCTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/pangolin</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ComicNeue18Style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/comic_neue</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ComicNeue16Style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/comic_neue</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Black13BTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/pangolin</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DialogTitleStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/pangolin</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:background="@color/transparent">
+
+    <TextView
+        android:id="@+id/pin_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/pin"
+        android:textColor="@color/black"
+        style="@style/ComicNeue18Style"
+        android:padding="16dp"
+        android:background="@drawable/top_rounded_corners" />
+
+    <TextView
+        android:id="@+id/selected_pin_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/pin_option"
+        app:layout_constraintRight_toRightOf="@id/pin_option"
+        app:layout_constraintBottom_toBottomOf="@id/pin_option"
+        android:visibility="gone"
+        android:text="@string/selected"
+        android:paddingEnd="8dp"
+        android:textColor="@color/aqua_blue"
+        style="@style/Black13BTextStyle"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/password_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/pin_option"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/password"
+        style="@style/ComicNeue18Style"
+        android:textColor="@color/black"
+        android:padding="16dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/bottom_rounded_corners" />
+
+    <TextView
+        android:id="@+id/selected_password_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/password_option"
+        app:layout_constraintRight_toRightOf="@id/password_option"
+        app:layout_constraintBottom_toBottomOf="@id/password_option"
+        android:visibility="gone"
+        android:text="@string/selected"
+        android:paddingEnd="8dp"
+        android:textColor="@color/aqua_blue"
+        style="@style/Black13BTextStyle"
+        tools:ignore="RtlSymmetry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

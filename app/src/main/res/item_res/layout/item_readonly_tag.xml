@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tag_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textIsSelectable="true"
+    style="@style/ComicNeue16Style"
+    android:textColor="@color/deep_pink"
+    android:background="@drawable/rounded_corners_20dp"
+    android:backgroundTint="@color/greyE"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="4dp"
+    android:gravity="center" />

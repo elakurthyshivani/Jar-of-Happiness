@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity"
+    android:background="@color/grey5">
+
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/close_circle"
+        android:padding="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:tooltipText="Close menu"
+        android:onClick="back" />
+
+    <!-- Add -->
+    <ImageView
+        android:id="@+id/add_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/add_menu_item"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/view_all_button_icon"
+        app:layout_constraintBottom_toTopOf="@id/add_button_text"
+        app:layout_constraintRight_toLeftOf="@id/view_all_button_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="gotoAdd" />
+
+    <TextView
+        android:id="@+id/add_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="Add"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/add_button_icon"
+        app:layout_constraintRight_toLeftOf="@id/view_all_button_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="gotoAdd" />
+
+    <!-- View All -->
+    <ImageView
+        android:id="@+id/view_all_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/view_all_menu_item"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/view_random_button_icon"
+        app:layout_constraintRight_toLeftOf="@id/view_random_button_icon"
+        app:layout_constraintBottom_toTopOf="@id/view_all_button_text"
+        app:layout_constraintLeft_toRightOf="@id/add_button_icon"
+        android:onClick="gotoViewAll" />
+
+    <TextView
+        android:id="@+id/view_all_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="View All"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/view_all_button_icon"
+        app:layout_constraintLeft_toRightOf="@id/add_button_text"
+        app:layout_constraintRight_toLeftOf="@id/view_random_button_text"
+        android:onClick="gotoViewAll" />
+
+    <!-- View Random -->
+    <ImageView
+        android:id="@+id/view_random_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/view_random_menu_item"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view_random_button_text"
+        app:layout_constraintLeft_toRightOf="@id/view_all_button_icon"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="gotoView" />
+
+    <TextView
+        android:id="@+id/view_random_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="View Random"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/my_activity_button_icon"
+        app:layout_constraintTop_toBottomOf="@id/view_random_button_icon"
+        app:layout_constraintLeft_toRightOf="@id/view_all_button_text"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="gotoView" />
+
+    <!-- Search -->
+    <ImageView
+        android:id="@+id/search_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/search_menu_item"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/recycle_bin_button_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/recycle_bin_button_icon"
+        app:layout_constraintBottom_toTopOf="@id/search_button_text"
+        android:onClick="gotoSearch" />
+
+    <TextView
+        android:id="@+id/search_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="Search"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/search_button_icon"
+        app:layout_constraintRight_toLeftOf="@id/recycle_bin_button_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="gotoSearch" />
+
+    <!-- Recycle Bin -->
+    <ImageView
+        android:id="@+id/recycle_bin_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/recycle_bin_menu_item"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/my_activity_button_icon"
+        app:layout_constraintLeft_toRightOf="@id/search_button_icon"
+        app:layout_constraintRight_toLeftOf="@id/my_activity_button_icon"
+        app:layout_constraintBottom_toTopOf="@id/recycle_bin_button_text"
+        android:onClick="gotoBin" />
+
+    <TextView
+        android:id="@+id/recycle_bin_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="Recycle Bin"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/recycle_bin_button_icon"
+        app:layout_constraintRight_toLeftOf="@id/my_activity_button_text"
+        app:layout_constraintLeft_toRightOf="@id/search_button_text"
+        android:onClick="gotoBin" />
+
+    <!-- My Activity -->
+    <ImageView
+        android:id="@+id/my_activity_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/my_activity_menu_item"
+        android:layout_marginTop="32dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/view_random_button_text"
+        app:layout_constraintBottom_toTopOf="@id/my_activity_button_text"
+        app:layout_constraintLeft_toRightOf="@id/recycle_bin_button_icon"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="gotoStatistics" />
+
+    <TextView
+        android:id="@+id/my_activity_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="Statistics"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/about_button_icon"
+        app:layout_constraintTop_toBottomOf="@id/my_activity_button_icon"
+        app:layout_constraintLeft_toRightOf="@id/recycle_bin_button_text"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="gotoStatistics" />
+
+    <!-- Settings -->
+    <ImageView
+        android:id="@+id/settings_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/settings_menu_item"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/how_to_button_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/how_to_button_icon"
+        app:layout_constraintBottom_toTopOf="@id/settings_button_text"
+        android:onClick="gotoSettings" />
+
+    <TextView
+        android:id="@+id/settings_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="Settings"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/settings_button_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/how_to_button_text"
+        android:onClick="gotoSettings" />
+
+    <!-- How To -->
+    <ImageView
+        android:id="@+id/how_to_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/how_to_menu_item"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/about_button_icon"
+        app:layout_constraintRight_toLeftOf="@id/about_button_icon"
+        app:layout_constraintLeft_toRightOf="@id/search_button_icon"
+        app:layout_constraintBottom_toTopOf="@id/how_to_button_text" />
+
+    <TextView
+        android:id="@+id/how_to_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="How To"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/how_to_button_icon"
+        app:layout_constraintLeft_toRightOf="@id/search_button_text"
+        app:layout_constraintRight_toLeftOf="@id/about_button_text" />
+
+    <!-- About -->
+    <ImageView
+        android:id="@+id/about_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/about_menu_item"
+        android:layout_marginTop="32dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/my_activity_button_text"
+        app:layout_constraintBottom_toTopOf="@id/about_button_text"
+        app:layout_constraintLeft_toRightOf="@id/how_to_button_icon"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/about_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="About"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/sign_out_button_icon"
+        app:layout_constraintTop_toBottomOf="@id/about_button_icon"
+        app:layout_constraintLeft_toRightOf="@id/how_to_button_text"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <!-- Sign Out -->
+    <ImageView
+        android:id="@+id/sign_out_button_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/sign_out_menu_item"
+        android:layout_marginTop="32dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/about_button_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/sign_out_button_text"
+        android:onClick="signOut" />
+
+    <TextView
+        android:id="@+id/sign_out_button_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        style="@style/WhiteBCTextStyle"
+        android:text="Sign Out"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/sign_out_button_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="signOut" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

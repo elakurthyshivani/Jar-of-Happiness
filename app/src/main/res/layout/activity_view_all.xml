@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ViewAllActivity">
+
+    <LinearLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/filter"
+            android:onClick="openFilters"
+            android:contentDescription="@string/filters_for_view"
+            android:tooltipText="@string/filters_for_view"
+            tools:targetApi="o" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/view_all"
+            android:layout_marginStart="8dp"
+            style="@style/ComicNeue18Style"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/menu_icon"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/menu"
+            android:onClick="gotoMenu"
+            android:contentDescription="@string/goto_menu"
+            android:tooltipText="@string/goto_menu"
+            tools:targetApi="o" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/include_long_click_app_bar" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

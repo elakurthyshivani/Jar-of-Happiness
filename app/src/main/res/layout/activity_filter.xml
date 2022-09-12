@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FilterActivity">
+
+    <LinearLayout
+        android:id="@+id/app_bar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/filter_types"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/left_pointer"
+            android:tooltipText="@string/back"
+            android:contentDescription="@string/back"
+            android:onClick="back"
+            tools:targetApi="o" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/ok"
+            android:contentDescription="@string/save_changes"
+            android:tooltipText="@string/save_changes"
+            android:onClick="saveFiltersAndBack"
+            tools:targetApi="o" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/filter"
+            android:layout_marginStart="8dp"
+            style="@style/ComicNeue18Style"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/filter_types"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.33"
+        android:elevation="1dp"
+        android:background="@color/greyE"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/fragment_container"
+        android:orientation="vertical" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintWidth_percent="0.67"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/filter_types"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

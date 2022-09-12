@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/rounded_corners_10dp">
+
+    <CheckBox
+        android:id="@+id/locked_memories_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/locked_memories"
+        android:buttonTint="@color/aqua_blue"
+        style="@style/ComicNeue18Style"
+        android:layout_marginBottom="8dp" />
+
+    <CheckBox
+        android:id="@+id/unlocked_memories_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/unlocked_memories"
+        android:buttonTint="@color/pale_violet_red"
+        style="@style/ComicNeue18Style" />
+
+</LinearLayout>

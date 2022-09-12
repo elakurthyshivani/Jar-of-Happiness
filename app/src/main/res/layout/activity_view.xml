@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_activity_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ViewActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/edit_icon"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:tooltipText="@string/edit_memory"
+            android:contentDescription="@string/edit_memory"
+            android:src="@drawable/edit"
+            android:onClick="editMemory"
+            tools:targetApi="o" />
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/delete"
+            android:tooltipText="@string/add_memory_to_bin"
+            android:contentDescription="@string/add_memory_to_bin"
+            android:onClick="addToRecycleBin"
+            tools:targetApi="o" />
+
+        <ImageView
+            android:id="@+id/download_icon"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/download"
+            android:tooltipText="@string/download_memory_message"
+            android:contentDescription="@string/download_memory_message"
+            android:onClick="downloadMemory"
+            tools:targetApi="o" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/view"
+            android:layout_marginStart="8dp"
+            style="@style/ComicNeue18Style"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/randomize"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/shuffle"
+            android:visibility="gone"
+            android:tooltipText="@string/random_memory_message"
+            android:contentDescription="@string/random_memory_message"
+            android:onClick="getAnotherRandomMemory"
+            tools:targetApi="o" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/menu"
+            android:tooltipText="@string/goto_menu"
+            android:contentDescription="@string/goto_menu"
+            android:onClick="gotoMenu"
+            tools:targetApi="o" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/memory_details_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- When downloading the memory, to add the theme
+        in the downloaded image, LinearLayout > ConstraintLayout
+        is added. -->
+        <LinearLayout
+            android:id="@+id/memory_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners_10dp"
+                android:elevation="1dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/lil_icons_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end|center_vertical"
+                    android:paddingBottom="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bottom_greyc_border"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/title_view">
+
+                    <TextView
+                        android:id="@+id/memory_id_view"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/pale_violet_red"
+                        style="@style/Black13BTextStyle" />
+
+                    <ImageView
+                        android:id="@+id/delete_view"
+                        android:layout_width="18sp"
+                        android:layout_height="18sp"
+                        android:contentDescription="@string/in_bin"
+                        android:src="@drawable/delete_light_sea_green" />
+
+                    <ImageView
+                        android:id="@+id/lock_view"
+                        android:layout_width="18sp"
+                        android:layout_height="18sp"
+                        android:contentDescription="@string/locked"
+                        android:src="@drawable/lock_aqua_blue" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/title_mini_icon"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:contentDescription="@string/title"
+                    app:layout_constraintTop_toTopOf="@id/title_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/title_view"
+                    app:layout_constraintBottom_toBottomOf="@id/title_view"
+                    android:src="@drawable/title_mini" />
+
+                <TextView
+                    android:id="@+id/title_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/lil_icons_view"
+                    app:layout_constraintLeft_toRightOf="@id/title_mini_icon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/when_view"
+                    android:textIsSelectable="true"
+                    android:textColor="@color/dark_magenta_8per_lighter"
+                    style="@style/ComicNeue18Style"
+                    android:layout_marginStart="16dp" />
+
+                <ImageView
+                    android:id="@+id/when_mini_icon"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:contentDescription="@string/when"
+                    app:layout_constraintTop_toTopOf="@id/when_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/when_view"
+                    app:layout_constraintBottom_toBottomOf="@id/when_view"
+                    android:src="@drawable/when_mini" />
+
+                <TextView
+                    android:id="@+id/when_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/title_view"
+                    app:layout_constraintLeft_toRightOf="@id/when_mini_icon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/location_view"
+                    android:textIsSelectable="true"
+                    style="@style/ComicNeue18Style"
+                    android:textColor="@color/blue_violet"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp" />
+
+                <ImageView
+                    android:id="@+id/location_mini_icon"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:contentDescription="@string/location"
+                    app:layout_constraintTop_toTopOf="@id/location_view"
+                    app:layout_constraintBottom_toBottomOf="@id/location_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/location_view"
+                    android:src="@drawable/location_mini" />
+
+                <TextView
+                    android:id="@+id/location_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/when_view"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/location_mini_icon"
+                    app:layout_constraintBottom_toTopOf="@id/memory_view"
+                    android:textIsSelectable="true"
+                    style="@style/ComicNeue18Style"
+                    android:textColor="@color/light_sea_green"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="@id/memory_view"
+                    app:layout_constraintBottom_toBottomOf="@id/memory_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corners_20dp"
+                    android:backgroundTint="@color/greyE" />
+
+                <ImageView
+                    android:id="@+id/open_quote"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:contentDescription="@string/memory"
+                    app:layout_constraintTop_toTopOf="@id/memory_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:elevation="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/memory_left_mini" />
+
+                <TextView
+                    android:id="@+id/memory_view"
+                    android:layout_width="0dp"
+                    app:layout_constraintWidth_default="wrap"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/location_view"
+                    app:layout_constraintRight_toLeftOf="@id/close_quote"
+                    app:layout_constraintLeft_toRightOf="@id/open_quote"
+                    app:layout_constraintBottom_toTopOf="@id/moods_container"
+                    style="@style/ComicNeue16Style"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:elevation="1dp"
+                    android:textIsSelectable="true"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/close_quote"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:contentDescription="@string/memory"
+                    app:layout_constraintBottom_toBottomOf="@id/memory_view"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:elevation="1dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/memory_mini" />
+
+                <ImageView
+                    android:id="@+id/mood_mini_icon"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:contentDescription="@string/mood"
+                    app:layout_constraintTop_toTopOf="@id/moods_container"
+                    app:layout_constraintBottom_toBottomOf="@id/moods_container"
+                    app:layout_constraintRight_toLeftOf="@id/moods_container"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:src="@drawable/mood_mini" />
+
+                <LinearLayout
+                    android:id="@+id/moods_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/memory_view"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/mood_mini_icon"
+                    app:layout_constraintBottom_toTopOf="@id/tags_container"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp" />
+
+                <ImageView
+                    android:id="@+id/tag_mini_icon"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:contentDescription="@string/tags"
+                    app:layout_constraintTop_toTopOf="@id/tags_container"
+                    app:layout_constraintBottom_toBottomOf="@id/tags_container"
+                    app:layout_constraintRight_toLeftOf="@id/tags_container"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:src="@drawable/tag_mini" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/tags_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/moods_container"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tag_mini_icon"
+                    app:layout_constraintBottom_toTopOf="@id/links_container"
+                    app:flexWrap="wrap"
+                    app:justifyContent="flex_start"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp" />
+
+                <ImageView
+                    android:id="@+id/link_mini_icon"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:contentDescription="@string/link"
+                    app:layout_constraintTop_toTopOf="@id/links_container"
+                    app:layout_constraintBottom_toBottomOf="@id/links_container"
+                    app:layout_constraintRight_toLeftOf="@id/links_container"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:src="@drawable/link_mini" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/links_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tags_container"
+                    app:layout_constraintLeft_toRightOf="@id/link_mini_icon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="lock_option" type="id" />
+    <item name="search_by_option" type="id" />
+    <item name="search_in_option" type="id" />
+    <item name="view_by_option" type="id" />
+</resources>

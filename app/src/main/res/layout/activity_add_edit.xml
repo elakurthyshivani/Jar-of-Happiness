@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddEditActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="1dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/save"
+            android:contentDescription="@string/save_a_memory"
+            android:tooltipText="@string/save_a_memory"
+            android:onClick="saveMemory"
+            tools:targetApi="o" />
+
+        <ImageView
+            android:id="@+id/lock"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/lock"
+            android:contentDescription="@string/lock_the_memory"
+            android:tooltipText="@string/lock_the_memory"
+            android:tag="0"
+            android:onClick="toggleLock"
+            tools:targetApi="o" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/add"
+            style="@style/ComicNeue18Style"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/menu"
+            android:contentDescription="@string/goto_menu"
+            android:tooltipText="@string/goto_menu"
+            android:onClick="gotoMenu"
+            tools:targetApi="o" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/memory_details_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_corners_10dp"
+                android:elevation="1dp"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/title_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    style="@style/Black13BTextStyle"
+                    android:labelFor="@id/title_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title" />
+
+                <ImageView
+                    app:layout_constraintTop_toTopOf="@id/title_title"
+                    app:layout_constraintLeft_toRightOf="@id/title_title"
+                    app:layout_constraintBottom_toBottomOf="@id/title_title"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_marginStart="4dp"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/title"
+                    android:src="@drawable/title_mini" />
+
+                <EditText
+                    android:id="@+id/title_input"
+                    app:layout_constraintTop_toBottomOf="@id/title_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    style="@style/ComicNeue18Style"
+                    android:inputType="textMultiLine"
+                    android:maxLength="300"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/comic_neue"
+                    android:textColor="@color/dark_magenta_8per_lighter"
+                    android:background="@color/transparent"
+                    android:autofillHints="" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_corners_10dp"
+                android:elevation="1dp"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/when_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    style="@style/Black13BTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/when" />
+
+                <ImageView
+                    app:layout_constraintTop_toTopOf="@id/when_title"
+                    app:layout_constraintLeft_toRightOf="@id/when_title"
+                    app:layout_constraintBottom_toBottomOf="@id/when_title"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_above="@id/when_input"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/when"
+                    android:src="@drawable/when_mini" />
+
+                <EditText
+                    android:id="@+id/when_input"
+                    app:layout_constraintTop_toBottomOf="@id/when_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/date_picker_button"
+                    style="@style/ComicNeue18Style"
+                    android:inputType="textMultiLine"
+                    android:maxLength="300"
+                    android:textColor="@color/blue_violet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="@string/when_hint"
+                    android:autofillHints="" />
+
+                <ImageView
+                    android:id="@+id/date_picker_button"
+                    app:layout_constraintTop_toBottomOf="@id/when_title"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/when_input"
+                    android:layout_width="24sp"
+                    android:layout_height="24sp"
+                    android:padding="4sp"
+                    android:src="@drawable/date_picker"
+                    android:background="@drawable/circle_white"
+                    android:backgroundTint="@color/blue_violet"
+                    android:elevation="1dp"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@string/open_date_picker"
+                    android:tooltipText="@string/open_date_picker"
+                    android:onClick="openDatePicker"
+                    tools:targetApi="o" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_corners_10dp"
+                android:elevation="1dp"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/location_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    style="@style/Black13BTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location" />
+
+                <ImageView
+                    app:layout_constraintTop_toTopOf="@id/location_title"
+                    app:layout_constraintLeft_toRightOf="@id/location_title"
+                    app:layout_constraintBottom_toBottomOf="@id/location_title"
+                    android:layout_width="13sp"
+                    android:layout_height="13sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="4dp"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/location"
+                    android:src="@drawable/location_mini" />
+
+                <EditText
+                    android:id="@+id/location_input"
+                    app:layout_constraintTop_toBottomOf="@id/location_title"
+                    style="@style/ComicNeue18Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:inputType="textMultiLine"
+                    android:maxLength="300"
+                    android:textColor="@color/light_sea_green"
+                    android:autofillHints=""
+                    android:hint="@string/location_hint" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_corners_10dp"
+                android:elevation="1dp"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/memory_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    style="@style/Black13BTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/memory_input"
+                    android:text="@string/memory" />
+
+                <ImageView
+                    app:layout_constraintTop_toTopOf="@id/memory_title"
+                    app:layout_constraintLeft_toRightOf="@id/memory_title"
+                    app:layout_constraintBottom_toBottomOf="@id/memory_title"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_marginStart="4dp"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/memory"
+                    android:src="@drawable/memory_mini" />
+
+                <EditText
+                    android:id="@+id/memory_input"
+                    app:layout_constraintTop_toBottomOf="@id/memory_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    style="@style/ComicNeue18Style"
+                    android:inputType="textMultiLine"
+                    android:autofillHints=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="15"
+                    android:background="@color/transparent"
+                    android:gravity="top|start" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_corners_10dp"
+                android:elevation="1dp"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/mood_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    style="@style/Black13BTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mood" />
+
+                <ImageView
+                    app:layout_constraintTop_toTopOf="@id/mood_title"
+                    app:layout_constraintLeft_toRightOf="@id/mood_title"
+                    app:layout_constraintBottom_toBottomOf="@id/mood_title"
+                    android:layout_width="13sp"
+                    android:layout_height="13sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="4dp"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/mood"
+                    android:src="@drawable/mood_mini" />
+
+                <ImageView
+                    android:id="@+id/laugh_icon"
+                    app:layout_constraintTop_toBottomOf="@id/mood_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/lol_icon"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/laugh_us"
+                    android:tag="us"
+                    android:contentDescription="@string/laugh"
+                    android:tooltipText="@string/laugh"
+                    android:onClick="toggleMood"
+                    tools:targetApi="o" />
+
+                <ImageView
+                    android:id="@+id/lol_icon"
+                    app:layout_constraintTop_toBottomOf="@id/mood_title"
+                    app:layout_constraintLeft_toRightOf="@id/laugh_icon"
+                    app:layout_constraintRight_toLeftOf="@id/love_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/lol_us"
+                    android:tag="us"
+                    android:contentDescription="@string/lol"
+                    android:tooltipText="@string/lol"
+                    android:onClick="toggleMood"
+                    tools:targetApi="o" />
+
+                <ImageView
+                    android:id="@+id/love_icon"
+                    app:layout_constraintTop_toBottomOf="@id/mood_title"
+                    app:layout_constraintLeft_toRightOf="@id/lol_icon"
+                    app:layout_constraintRight_toLeftOf="@id/tongue_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/love_us"
+                    android:tag="us"
+                    android:contentDescription="@string/love"
+                    android:tooltipText="@string/love"
+                    android:onClick="toggleMood"
+                    tools:targetApi="o" />
+
+                <ImageView
+                    android:id="@+id/tongue_icon"
+                    app:layout_constraintTop_toBottomOf="@id/mood_title"
+                    app:layout_constraintLeft_toRightOf="@id/love_icon"
+                    app:layout_constraintRight_toLeftOf="@id/wink_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/tongue_us"
+                    android:tag="us"
+                    android:contentDescription="@string/tongue_out"
+                    android:tooltipText="@string/tongue_out"
+                    android:onClick="toggleMood"
+                    tools:targetApi="o" />
+
+                <ImageView
+                    android:id="@+id/wink_icon"
+                    app:layout_constraintTop_toBottomOf="@id/mood_title"
+                    app:layout_constraintLeft_toRightOf="@id/tongue_icon"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/wink_us"
+                    android:tag="us"
+                    android:contentDescription="@string/wink"
+                    android:tooltipText="@string/wink"
+                    android:onClick="toggleMood"
+                    tools:targetApi="o" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_corners_10dp"
+                android:elevation="1dp"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/tags_title"
+                    style="@style/Black13BTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="@string/tags" />
+
+                <ImageView
+                    android:id="@+id/tags_mini_icon"
+                    android:layout_width="13sp"
+                    android:layout_height="13sp"
+                    app:layout_constraintTop_toTopOf="@id/tags_title"
+                    app:layout_constraintBottom_toBottomOf="@id/tags_title"
+                    app:layout_constraintLeft_toRightOf="@id/tags_title"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="4dp"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/tag"
+                    android:src="@drawable/tag_mini" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/tags_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:flexWrap="wrap"
+                    app:justifyContent="flex_start"
+                    app:layout_constraintTop_toBottomOf="@id/tags_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/new_tag_view" />
+
+                <LinearLayout
+                    android:id="@+id/new_tag_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tags_container"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/rounded_corners_20dp"
+                    android:backgroundTint="@color/greyE"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/ComicNeue16Style"
+                        android:textStyle="bold"
+                        android:textColor="@color/deep_pink"
+                        android:text="@string/hash"
+                        android:paddingEnd="4dp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <EditText
+                        android:id="@+id/tag_input"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:hint="@string/new_tag"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLength="200"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+                        android:textAlignment="textStart"
+                        style="@style/ComicNeue16Style"
+                        android:textColor="@color/deep_pink"
+                        android:paddingEnd="8dp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <ImageView
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
+                        android:padding="4sp"
+                        android:src="@drawable/add"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="@color/deep_pink"
+                        android:elevation="1dp"
+                        android:contentDescription="@string/add_a_tag"
+                        android:tooltipText="@string/add_a_tag"
+                        android:onClick="addTag"
+                        tools:targetApi="o" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--<com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/tags_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_corners_10dp"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_start"
+                android:elevation="1dp"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        style="@style/Black13BTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tags" />
+
+                    <ImageView
+                        android:layout_width="13sp"
+                        android:layout_height="13sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="4dp"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="@string/tag"
+                        android:src="@drawable/tag_mini" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/rounded_corners_20dp"
+                    android:backgroundTint="@color/greyE"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/ComicNeue16Style"
+                        android:textStyle="bold"
+                        android:textColor="@color/deep_pink"
+                        android:text="@string/hash"
+                        android:paddingEnd="4dp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <EditText
+                        android:id="@+id/tag_input"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:hint="@string/new_tag"
+                        android:autofillHints=""
+                        android:inputType="text"
+                        android:maxLength="200"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+                        android:textAlignment="textStart"
+                        style="@style/ComicNeue16Style"
+                        android:textColor="@color/deep_pink"
+                        android:paddingEnd="8dp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <ImageView
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
+                        android:padding="4sp"
+                        android:src="@drawable/add"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="@color/deep_pink"
+                        android:elevation="1dp"
+                        android:contentDescription="@string/add_a_tag"
+                        android:tooltipText="@string/add_a_tag"
+                        android:onClick="addTag"
+                        tools:targetApi="o" />
+
+                </LinearLayout>
+
+            </com.google.android.flexbox.FlexboxLayout> -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_corners_10dp"
+                android:elevation="1dp"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/links_title"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        style="@style/Black13BTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/external_links" />
+
+                    <ImageView
+                        android:id="@+id/links_mini_icon"
+                        app:layout_constraintTop_toTopOf="@id/links_title"
+                        app:layout_constraintBottom_toBottomOf="@id/links_title"
+                        app:layout_constraintLeft_toRightOf="@id/links_title"
+                        android:layout_width="13sp"
+                        android:layout_height="13sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="4dp"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="@string/external_links"
+                        android:src="@drawable/link_mini" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/links_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/links_title"
+                    app:layout_constraintBottom_toTopOf="@id/new_link_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+
+                <LinearLayout
+                    android:id="@+id/new_link_view"
+                    app:layout_constraintTop_toBottomOf="@id/links_container"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/rounded_corners_20dp"
+                    android:backgroundTint="@color/greyE"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/link_input"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:hint="@string/new_link"
+                        android:inputType="textUri|textMultiLine"
+                        android:maxLength="2100"
+                        android:autofillHints=""
+                        style="@style/ComicNeue16Style"
+                        android:textColor="@color/dodger_blue"
+                        android:textAlignment="textStart"
+                        android:paddingEnd="8dp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <ImageView
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
+                        android:padding="4sp"
+                        android:src="@drawable/add"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="@color/dodger_blue"
+                        android:elevation="1dp"
+                        android:contentDescription="@string/add_a_link"
+                        android:tooltipText="@string/add_a_link"
+                        android:onClick="addLink"
+                        tools:targetApi="o" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

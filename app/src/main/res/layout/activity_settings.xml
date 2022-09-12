@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="1dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/left_pointer"
+            android:contentDescription="@string/back"
+            android:tooltipText="@string/back"
+            android:visibility="gone"
+            android:onClick="back"
+            tools:targetApi="o" />
+
+        <ImageView
+            android:id="@+id/ok"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/ok"
+            android:contentDescription="@string/save"
+            android:tooltipText="@string/save"
+            android:visibility="gone"
+            android:onClick="ok"
+            tools:targetApi="o" />
+
+        <TextView
+            android:id="@+id/action_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/settings"
+            style="@style/ComicNeue18Style"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/menu"
+            android:contentDescription="@string/goto_menu"
+            android:tooltipText="@string/goto_menu"
+            android:onClick="gotoMenu"
+            tools:targetApi="o" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_settings_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change_theme"
+            android:textColor="@color/black"
+            style="@style/ComicNeue18Style"
+            android:padding="16dp"
+            android:layout_marginBottom="1dp"
+            android:onClick="openChangeThemes"
+            android:background="@drawable/top_rounded_corners" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Backup to Google Drive"
+            android:textColor="@color/black"
+            style="@style/ComicNeue18Style"
+            android:padding="16dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lock_memories"
+            android:textColor="@color/black"
+            style="@style/ComicNeue18Style"
+            android:padding="16dp"
+            android:layout_marginBottom="1dp"
+            android:onClick="openLockMemories"
+            android:background="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Two-Step Authentication"
+            android:textColor="@color/black"
+            style="@style/ComicNeue18Style"
+            android:padding="16dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/my_account"
+            style="@style/ComicNeue18Style"
+            android:textColor="@color/black"
+            android:padding="16dp"
+            android:layout_marginBottom="1dp"
+            android:onClick="openMyAccount"
+            android:background="@drawable/bottom_rounded_corners" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/sub_settings_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+</LinearLayout>

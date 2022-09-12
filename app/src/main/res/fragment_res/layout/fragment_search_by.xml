@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/rounded_corners_10dp">
+
+    <RadioButton
+        android:id="@+id/memory_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/memory"
+        android:buttonTint="@color/black"
+        style="@style/ComicNeue18Style"
+        android:layout_marginBottom="8dp" />
+
+    <RadioButton
+        android:id="@+id/when_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/when"
+        android:buttonTint="@color/blue_violet"
+        style="@style/ComicNeue18Style"
+        android:layout_marginBottom="8dp" />
+
+    <RadioButton
+        android:id="@+id/location_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:buttonTint="@color/light_sea_green"
+        style="@style/ComicNeue18Style"
+        android:layout_marginBottom="8dp" />
+
+    <RadioButton
+        android:id="@+id/mood_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mood"
+        android:buttonTint="@color/gold"
+        style="@style/ComicNeue18Style"
+        android:layout_marginBottom="8dp" />
+
+    <RadioButton
+        android:id="@+id/tag_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tag"
+        android:buttonTint="@color/deep_pink"
+        style="@style/ComicNeue18Style" />
+
+</RadioGroup>

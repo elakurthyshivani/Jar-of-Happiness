@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/transparent">
+
+    <TextView
+        android:id="@+id/change_gmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_gmail"
+        android:textColor="@color/black"
+        style="@style/ComicNeue18Style"
+        android:padding="16dp"
+        android:background="@drawable/top_rounded_corners" />
+
+    <TextView
+        android:id="@+id/delete_my_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_my_account"
+        style="@style/ComicNeue18Style"
+        android:textColor="@color/black"
+        android:padding="16dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/bottom_rounded_corners" />
+
+</LinearLayout>
